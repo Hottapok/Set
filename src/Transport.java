@@ -52,17 +52,24 @@ public abstract class Transport {
         }
     }
     public void addDriver(Driver<?> driver){
-        drivers.add(driver);
+        if (!drivers.equals(driver)){
+        drivers.add(driver);}
     }
     public void addDMechanic(Mechanic<?> mechanic){
-        mechanics.add(mechanic);
+        if (!mechanics.equals(mechanic)) {
+            mechanics.add(mechanic);
+        }
     }
     public void addSponsor(Sponsor sponsor){
-        sponsors.add(sponsor);
+        if (!sponsors.equals(sponsor)){
+            sponsors.add(sponsor);
+        }
     }
     public abstract void startMoving();
     public abstract void stopMoving();
     public abstract boolean passDiagnostic();
 
     public abstract void repair();
+
+
 }

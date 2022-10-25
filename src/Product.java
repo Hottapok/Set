@@ -46,10 +46,10 @@ public class Product {
         }
     }
 
-    public Product(String name, double cost, double weight) {
+    public Product(String name, double cost) {
         setName(name);
         setCost(cost);
-        setWeight(weight);
+
     }
 
     @Override

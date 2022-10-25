@@ -15,15 +15,23 @@ public class ProductList {
     }
 
     public void addSpisok(Product product) {
-        try {
+        if (!spisok.contains(product)) {
+            spisok.add(product);
+        } else if (product.equals(spisok)) {
+            throw new RuntimeException("Продукт уже в сумке");
+        }
 
-            if (!spisok.contains(product)){
-                spisok.add(product);
-            }else if (product.equals(spisok)){
-                throw new RuntimeException("Продукт уже в сумке");
-            }
-        } catch (RuntimeException e){
-            System.out.println(e.getMessage());
+    }
+
+    public void delProduct(Product product) {
+        spisok.remove(product);
+    }
+
+    public void buyProduct(Product product) {
+        if (spisok.contains(product)) {
+            ArrayList<String> prod= new ArrayList<>();
+            prod.add(product+" Куплен");
+            System.out.println(prod);
         }
     }
 
@@ -42,6 +50,6 @@ public class ProductList {
 
     @Override
     public String toString() {
-        return "Список продуктов : " + spisok ;
+        return "Список продуктов : " + spisok;
     }
 }

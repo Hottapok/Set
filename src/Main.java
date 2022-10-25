@@ -2,10 +2,10 @@ import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
-        Product tomato = new Product("Помидор", 10.5, 1.2);
-        Product cucumber = new Product("Помидор", 10.5, 2);
-        Product corn = new Product("Кукуруза", 14.7, 0.7);
-        Product peas = new Product("Горох", 4, 0.95);
+        Product tomato = new Product("Помидор", 10.5);
+        Product cucumber = new Product("Огурец", 10.5);
+        Product corn = new Product("Кукуруза", 14.7);
+        Product peas = new Product("Горох", 4);
         Set<Product> spisok = new HashSet<>();
 
         ProductList list = new ProductList(spisok);
@@ -13,12 +13,26 @@ public class Main {
         list.addSpisok(cucumber);
         list.addSpisok(corn);
         list.addSpisok(peas);
+        list.delProduct(corn);
         System.out.println(list.toString());
+        list.buyProduct(corn);
+        list.buyProduct(tomato);
 
-        Recipe bliny = new Recipe(spisok, 120, "Блинчики");
+        Recipe pirog = new Recipe("Пирог с рыбой");
+        Recipe pirog1 = new Recipe("Пирог с капустой");
+        Recipe pirog2 = new Recipe("Пирог с мясом");
 
-        Set<Recipe> cookBook = new HashSet<>();
-        cookBook.add(bliny);
+        pirog.addProduct(new Product("Тесто",120.0),2);
+        pirog.addProduct(new Product("Рыба",350),1);
+        pirog.addProduct(new Product("Лук",25),1);
+        pirog.printRecipes();
+        CookBook cookBook=new CookBook();
+        cookBook.addRecipe(pirog1);
+        cookBook.addRecipe(pirog2);
+        cookBook.addRecipe(pirog);
+        cookBook.printCookBook();
+
+
 
 
         Set<Integer> set = new HashSet<>();
@@ -38,19 +52,21 @@ public class Main {
             }
         }
         System.out.println(set);
+
         Table table= new Table();
         table.addTable();
 
         Passport passport1 =  new Passport(125,"Andrei","Ivanovich","Golovach","10.10.1990");
         Passport passport2 = new Passport(124,"Nikolai","Andreeevich","","14.1.1989");
         Passport passport3 = new Passport(123,"Andrei","Andreevich","Petrov","10.10.1990");
-        Map<Integer,String> dataBase = new HashMap<>();
-        passport1.addPassport(dataBase);
-        passport2.addPassport(dataBase);
-        passport3.addPassport(dataBase);
 
-        System.out.println(dataBase);
+        PassportBase base= new PassportBase();
+        base.addPassport(passport1);
+        base.addPassport(passport2);
+        base.addPassport(passport3);
 
+        System.out.println(base);
+        base.dataBaseSearch(127);
     }
 
 }

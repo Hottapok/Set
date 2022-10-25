@@ -1,12 +1,11 @@
-import java.util.Objects;
-import java.util.Set;
+import java.util.*;
 
 public class Recipe {
-    private Set<Product> products;
+    private Map<Product,Integer> products = new HashMap<>();
     private double totalCost;
     private String name;
 
-    public Set<Product> getProducts() {
+    public Map<Product,Integer> getProducts() {
         return products;
     }
 
@@ -18,12 +17,23 @@ public class Recipe {
         return name;
     }
 
-    public Recipe(Set<Product> products, double totalCost, String name) {
-        this.products = products;
-        this.totalCost = totalCost;
+    public Recipe( String name) {
         this.name = name;
     }
 
+
+    public void addProduct(Product name , Integer value){
+        if (value<=0){
+            value=1;
+            products.put(name, value);
+        }else {
+            products.put(name,value);
+        }
+        totalCost+= name.getCost()*value;
+    }
+    public void printRecipes(){
+        System.out.println(getName()+" общая стоимость продуктов "+getTotalCost());
+    }
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -39,8 +49,7 @@ public class Recipe {
 
     @Override
     public String toString() {
-        return "Recipe{" +
-                "products=" + products +
+        return "Recipe{"  +
                 ", totalCost=" + totalCost +
                 ", name='" + name + '\'' +
                 '}';

@@ -7,7 +7,6 @@ public class Passport {
     private String surname;
     private String patronymic;
     private String date;
-    private Map<Integer, String> dataBase = new HashMap<>();
 
     public Passport(int number, String name, String surname, String patronymic, String date) {
         this.number = number;
@@ -50,12 +49,6 @@ public class Passport {
         return date;
     }
 
-    public void addPassport(Map map) {
-        map.put(number, name + " " + surname + " " + patronymic + " " + date);
-    }
-    static void search(){
-
-    }
 
 
 }
