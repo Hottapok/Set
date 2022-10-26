@@ -49,6 +49,14 @@ public class Passport {
         return date;
     }
 
-
-
+    @Override
+    public String toString() {
+        return "Passport{" +
+                "number=" + number +
+                ", name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
+                ", patronymic='" + patronymic + '\'' +
+                ", date='" + date + '\'' +
+                '}';
+    }
 }

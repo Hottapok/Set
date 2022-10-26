@@ -65,8 +65,8 @@ public class Main {
         base.addPassport(passport2);
         base.addPassport(passport3);
 
-        System.out.println(base);
-        base.dataBaseSearch(127);
+        System.out.println(base.toString());
+        base.dataBaseSearch(124);
     }
 
 }

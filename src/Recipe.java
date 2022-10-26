@@ -18,7 +18,12 @@ public class Recipe {
     }
 
     public Recipe( String name) {
-        this.name = name;
+        if (products.containsKey(name)){
+            throw new RuntimeException("Такой рецепт уже естьс");
+        }else {
+
+            this.name = name;
+        }
     }
 
 

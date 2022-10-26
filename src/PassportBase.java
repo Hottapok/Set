@@ -2,9 +2,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class PassportBase {
-    Map<Integer,String> base = new HashMap<>();
+    private Map<Integer,Passport> base = new HashMap<>();
     public void addPassport(Passport passport){
-        base.put(passport.getNumber(), passport.getName()+" "+passport.getSurname()+" "+passport.getPatronymic()+" "+passport.getDate());
+        base.put(passport.getNumber(), passport);
     }
     public void dataBaseSearch(Integer number){
         if (base.containsKey(number)==true){

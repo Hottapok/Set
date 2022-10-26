@@ -6,7 +6,11 @@ public class CookBook {
 
 
     public void addRecipe(Recipe recipe){
-        recipes.add(recipe);
+        if (recipes.contains(recipe)){
+            throw new RuntimeException("Такой рецепт уже есть!");
+        }else {
+            recipes.add(recipe);
+        }
     }
 
    public void printCookBook(){
